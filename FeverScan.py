@@ -35,9 +35,8 @@ def renew_connection(): #mejor no hacerlo mucho, ralentiza el proceso
 #Cargamos valor del tipo p
 infile = open('ultimo_m.txt', 'r')
 numplan_m = int(infile.readline())
-infile.close() #CERRAMOS
-#Forzamos que elija nuestro plan
-#Planes de ejamplo
+infile.close() #CERRAMOS (Importante)
+#Planes de ejemplo
 #Español --> 49989 , Londres --> 50253 , Gratis-->50223, NuevaYork --> 51610, España con from --> 51606, euros en nombre_plan--> 49991
 TOKEN = 'Introduce tu token de telegram' 
 
@@ -140,15 +139,12 @@ def extraer_datos(numplan_m,soup):
 
         #####AQUI COMIENZA EL CODIGO PARA OBTENER LA FECHA#####
         #Comenzamos obteniendo las distintas lineas de fecha
-        #todas_fechas=str(soup.find_all("div",{"id":"dates"})[0].find_all("select",{"id":"date_selector"})[0]).splitlines()
         todas_fechas=str(soup.find_all("div",{"id":"sessions"})[0]).splitlines()
-        ###todas_fechas = str(soup.find_all("div",{"id":"choices"}))
         #Obtenemos el numero de lineas para hacer el while, tenemos que quitar dos por los select del codigo
         ##Empezamos desde la linea 3
         cantidad_fechas = len(todas_fechas)-2
         i=3
         while i < cantidad_fechas:
-            #Antiguo solo dia linea=todas_fechas[i].replace("<option value=\"","").split("\">")
             #Primero separamos en numero y descripcion y despues analizamos por separado
             linea=todas_fechas[i].split("\">")
             plan_numero=linea[0].replace("<li class=\"choice date_","").replace("style=\"display:none;","").replace("\"","")
@@ -158,7 +154,6 @@ def extraer_datos(numplan_m,soup):
                 print(plan_descripcion+" Precio:"+str(plan_precio))
             #print(plan_descripcion)
             #print(plan_direccion)
-            
             
             print("Plan"+str(i))
             
@@ -183,7 +178,6 @@ def extraer_datos(numplan_m,soup):
             #Fin lineas para calendario
             i=i+1
         
-        #Recorremos todas las fechas
 
         if plan_es_sorteo == True:
             ciudad_sorteo = ""
@@ -284,5 +278,3 @@ while True:
     numplan_m=numplan_m+1
    
 
-
-        

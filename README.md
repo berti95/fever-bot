@@ -16,6 +16,8 @@ Pero esta nueva api cerro una ventana y nos abrio una puerta.
 Podemos obtener el token que se esta utlizando para mostrar los datos en el html tomandolo desde el codigo js que usa.
 Usando el token podemos hacer peticiones a la API directamente y obtener mucha más cantidad de los planes incluso antes de que estos sean activados.
 
+Fever seguramente podria limitar esto utilizando tokens de un solo uso.
+
 
 # Funcionalidad del codigo:
 

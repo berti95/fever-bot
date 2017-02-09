@@ -9,10 +9,12 @@ Sus principales objetivos son:
 
 Hasta noviembre de 2016 (FeverScan_old.py) obteniamos los datos mediante scrapping. A partir de noviembre (FeverScan.py) Fever comenzo a usar una APIRest con autenticación Oauth2.
 
-La consecuencia directa es que este cambio no nos permitia seguir haciendo scrapping a los planes de tipo /p.
+La consecuencia directa de este cambio es que no nos permitia seguir haciendo scrapping a los planes de tipo /p.
 
-Pero esta nueva api cerro una ventana y nos abrio una puerta. 
+Pero esta nueva api cerro una ventana y nos abrio una puerta.
+
 Podemos obtener el token que se esta utlizando para mostrar los datos en el html tomandolo desde el codigo js que usa.
+
 Usando el token podemos hacer peticiones a la API directamente y obtener mucha más cantidad de los planes incluso antes de que estos sean activados.
 
 
